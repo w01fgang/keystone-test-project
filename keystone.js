@@ -11,6 +11,8 @@ keystone.init({
 	'views': 'templates/views',
 	'view engine': 'jade',
 
+	'cloudinary config': 'cloudinary://333779167276662:_8jbSi9FB3sWYrfimcl8VKh34rI@keystone-demo',
+
 	'auto update': true,
 	'session': true,
 	'auth': true,
@@ -22,16 +24,14 @@ keystone.init({
 keystone.import('models');
 
 keystone.set('locals', {
-	_: require('underscore'),
-	env: keystone.get('env'),
-	utils: keystone.utils,
-	editable: keystone.content.editable
+	env: keystone.get('env')
 });
 
 keystone.set('routes', require('./routes'));
 keystone.set('nav', {
-	'users': ['users', 'companies'],
-	'content': ['posts', 'post-categories']
+	'people': ['users', 'companies', 'contacts'],
+	'content': ['posts', 'post-categories'],
+	'test-schemas': ['autocreates', 'field-tests']
 });
 
 keystone.start();
