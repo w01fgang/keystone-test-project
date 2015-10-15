@@ -1,9 +1,10 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var { Button, Form, FormField, FormInput } = require('elemental');
 
 var App = React.createClass({
 	componentDidMount () {
-		React.findDOMNode(this.refs.btn).focus();
+		this.refs.btn.focus();
 	},
 	gotoKeystone () {
 		window.location.href = '/keystone';
@@ -40,10 +41,7 @@ var styles = {
 		margin: '6vh auto',
 		maxWidth: 480,
 		padding: '3em',
-	}
+	},
 };
 
-React.render(
-	<App />,
-	document.getElementById('app')
-);
+ReactDOM.render(<App />, document.getElementById('app'));
