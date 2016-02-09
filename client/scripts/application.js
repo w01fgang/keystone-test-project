@@ -1,10 +1,10 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var { Button, Form, FormField, FormInput } = require('elemental');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Button, Form, FormField, FormInput } from 'elemental';
 
-var App = React.createClass({
+const App = React.createClass({
 	componentDidMount () {
-		this.refs.btn.focus();
+		ReactDOM.findDOMNode(this.refs.btn).focus();
 	},
 	gotoKeystone () {
 		window.location.href = '/keystone';
@@ -33,7 +33,7 @@ var App = React.createClass({
 	}
 });
 
-var styles = {
+const styles = {
 	box: {
 		backgroundColor: 'white',
 		borderRadius: '0.3em',
