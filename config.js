@@ -10,6 +10,7 @@ exports.options = {
 	'view engine': 'jade',
 
 	'cloudinary config': 'cloudinary://333779167276662:_8jbSi9FB3sWYrfimcl8VKh34rI@keystone-demo',
+	'mongo': 'mongodb://test:1q2w3e4r@dbh54.mlab.com:27547/react-keystone',
 
 	'auto update': true,
 	'session': true,
