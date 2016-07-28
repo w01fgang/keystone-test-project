@@ -1,9 +1,10 @@
 import React from 'react';
-import { Button, Col, Form, FormField, FileUpload, Row } from 'elemental';
+import { Form, FormField, FileUpload } from 'elemental';
 
 import api from '../../../client/lib/api';
 
 const Test = React.createClass({
+	displayName: 'Upload Multiple Images',
 	getInitialState () {
 		return {
 			image_one: null,
@@ -22,7 +23,6 @@ const Test = React.createClass({
 		});
 	},
 	runTest () {
-		this.props.run();
 		var formData = new window.FormData();
 		var images = 0;
 		formData.append('name', 'Test Updated ' + Date.now());
@@ -56,26 +56,14 @@ const Test = React.createClass({
 	},
 	render () {
 		return (
-			<div>
-				<h2 style={{ marginBottom: 0 }}>Upload Multiple Images</h2>
-				<Form type="horizontal">
-					<FormField label="Image" style={localStyles.field}>
-						<FileUpload buttonLabelInitial="Upload Image 1" buttonLabelChange="Change Image 1" name="one" onChange={(e, data) => this.handleFile('one', data)} />
-					</FormField>
-					<FormField label="Image" style={localStyles.field}>
-						<FileUpload buttonLabelInitial="Upload Image 2" buttonLabelChange="Change Image 2" name="two" onChange={(e, data) => this.handleFile('two', data)} />
-					</FormField>
-				</Form>
-				<hr />
-				<Row>
-					<Col sm="1/2">
-						<Button ref="run" type="primary" onClick={this.runTest}>Test Images Upload</Button>
-					</Col>
-					<Col sm="1/2" style={{ align: 'right' }}>
-						<Button ref="next" type="default" onClick={this.props.next} style={{ float: 'right' }}>Next</Button>
-					</Col>
-				</Row>
-			</div>
+			<Form type="horizontal">
+				<FormField label="Image" style={localStyles.field}>
+					<FileUpload buttonLabelInitial="Upload Image 1" buttonLabelChange="Change Image 1" name="one" onChange={(e, data) => this.handleFile('one', data)} />
+				</FormField>
+				<FormField label="Image" style={localStyles.field}>
+					<FileUpload buttonLabelInitial="Upload Image 2" buttonLabelChange="Change Image 2" name="two" onChange={(e, data) => this.handleFile('two', data)} />
+				</FormField>
+			</Form>
 		);
 	},
 });
