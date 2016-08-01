@@ -3,30 +3,30 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "babel-core": "^6.4.5",
-    "babel-plugin-transform-object-assign": "^6.3.13",
-    "babel-plugin-transform-object-rest-spread": "^6.3.13",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-preset-react": "^6.3.13",
-    "babelify": "^7.2.0",
+    "babel-core": "^6.9.1",
+    "babel-plugin-transform-object-assign": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.3.0",
     "blacklist": "^1.1.2",
-    "body-parser": "^1.14.2",
     "browserify-middleware": "^7.0.0",
-    "compression": "^1.6.1",
+    "compression": "^1.6.2",
     "connect-flash": "^0.1.1",
-    "elemental": "^0.5.12",
+    "elemental": "^0.5.14",
     "express": "^4.13.4",
+    "iron-node": "^3.0.5",
     "jade": "^1.11.0",
     "keystone": "https://github.com/keystonejs/keystone.git",
     "lorem-ipsum": "^1.0.3",
     "model-transform": "^2.0.0",
-    "morgan": "^1.6.1",
-    "multer": "^0.1.8",
+    "morgan": "^1.7.0",
+    "random-word": "^1.0.2",
     "randomkey": "^1.0.0",
-    "react": "^0.14.7",
-    "react-addons-css-transition-group": "^0.14.7",
-    "react-dom": "^0.14.7",
-    "react-domify": "^0.2.4",
+    "react": "^15.1.0",
+    "react-addons-css-transition-group": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-domify": "^0.2.6",
     "store-prototype": "^1.1.1",
     "xhr": "^2.2.0"
   },
@@ -35,9 +35,19 @@
     "npm": ">=2.14.2"
   },
   "scripts": {
-    "start": "node keystone.js",
     "dev": "KEYSTONE_DEV=true node keystone.js",
-    "dev_windows": "set KEYSTONE_DEV=true&&node keystone.js"
+    "dev:windows": "set KEYSTONE_DEV=true&&node keystone.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "start": "node keystone.js",
+    "start:no-csrf": "KEYSTONE_DEV=true DISABLE_CSRF=true node keystone.js",
+    "start:iron": "KEYSTONE_DEV=true iron-node keystone.js",
+    "test": "npm run lint"
   },
-  "main": "keystone.js"
+  "main": "keystone.js",
+  "devDependencies": {
+    "eslint": "^2.11.1",
+    "eslint-config-keystone": "^2.2.0",
+    "eslint-plugin-react": "^5.1.1"
+  }
 }

@@ -3,12 +3,10 @@
  * router to it, and using Keystone to intialise the database connection
  */
 
-var bodyParser = require('body-parser');
 var compression = require('compression');
 var express = require('express');
 var keystone = require('keystone');
 var morgan = require('morgan');
-var multer = require('multer');
 
 var config = require('./config');
 
@@ -35,12 +33,12 @@ app.use(require('connect-flash')());
 app.use(morgan('tiny'));
 app.use('/keystone', keystone.Admin.Server.createDynamicRouter(keystone));
 
-app.use(function(req, res) {
+app.use(function (req, res) {
 	res.redirect('/keystone');
 });
 
-keystone.openDatabaseConnection(function() {
-	var server = app.listen(process.env.PORT || 3001, function() {
+keystone.openDatabaseConnection(function () {
+	var server = app.listen(process.env.PORT || 3001, function () {
 		console.log('-------------------------------');
 		console.log('Express server ready on port %d', server.address().port);
 		console.log('-------------------------------');
